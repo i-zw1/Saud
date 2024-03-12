@@ -32,7 +32,7 @@ window.onload = () => {
 
 window.onscroll = () => {
   hiddens.forEach((hidden) => {
-    if (window.scrollY >= hidden.offsetTop) {
+    if (window.scrollY >= hidden.offsetTop - 500) {
       hidden.classList.remove("hidden");
     }
   });

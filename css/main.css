@@ -57,6 +57,14 @@ section {
   }
 }
 
+.main-title {
+  font-size: 34px;
+  color: var(--main-color);
+  margin: 0 auto 100px;
+  display: block;
+  width: fit-content;
+}
+
 /* Variables */
 
 :root {
@@ -70,6 +78,7 @@ section {
 header {
   box-shadow: 0 1px 5px rgba(0 0 0 / 15%);
   background-color: white;
+  z-index: 999;
 }
 
 header .container {
@@ -173,9 +182,9 @@ header .burger-icon {
 }
 
 .landing::before {
-  content: '';
+  content: "";
   position: absolute;
-  left: -20px;
+  left: -50px;
   top: -100px;
   width: 100%;
   height: calc(100% + 50px);
@@ -188,13 +197,15 @@ header .burger-icon {
 @media (max-width: 992px) {
   .landing::before {
     left: 0;
-    top: 0;
+    top: -20px;
+    transform: rotate(0deg);
   }
 }
 
 .landing .container {
   display: flex;
-  justify-content: space-between;  align-items: center;
+  justify-content: space-between;
+  align-items: center;
   min-height: 80vh;
 }
 
@@ -259,7 +270,6 @@ header .burger-icon {
   }
 }
 
-
 .landing .text i {
   display: block;
   padding: 7px;
@@ -267,6 +277,10 @@ header .burger-icon {
   border-radius: 6px;
   font-size: 24px;
   color: white;
+}
+
+.landing .text i:hover {
+  transform: scale(1.10);
 }
 
 .landing.hidden .text i {
@@ -290,6 +304,180 @@ header .burger-icon {
 .landing .text a:last-of-type i {
   background-color: rgba(195 42 163 / 80%);
   transition-delay: 0.2s;
+}
+
+/* About */
+#about .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  #about .container {
+    flex-direction: column;
+  }
+}
+
+#about .image {
+  position: relative;
+  max-width: 100%;
+  width: 375px;
+}
+
+#about img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0 0 0 / 15%);
+}
+
+@media (max-width: 992px) {
+  #about img {
+    display: none;
+  }
+}
+
+#about.hidden img {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+#about .image i {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  color: var(--main-color);
+  transition-delay: 0.5s;
+}
+
+@media (max-width: 992px) {
+  #about .image i {
+    display: none;
+  }
+}
+
+#about.hidden .image i {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+#about .image i:first-of-type {
+  right: -30px;
+  top: 30px;
+}
+
+#about .image i:nth-of-type(2) {
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#about.hidden .image i:nth-of-type(2) {
+  top: 60%;
+}
+
+#about .image i:last-of-type {
+  right: -30px;
+  bottom: 30px;
+}
+
+#about .text {
+  flex-basis: calc(100% - 500px);
+  max-width: 100%;
+}
+
+#about .text > p {
+  font-size: 22px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 992px) {
+  #about .text > p {
+    margin-bottom: 50px;
+  }
+}
+
+#about.hidden .text > p {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+@media (max-width: 992px) {
+  #about .text > p {
+    text-align: center;
+  }
+}
+
+#about .text .features {
+  display: flex;
+}
+
+@media (max-width: 992px) {
+  #about .text .features  {
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+#about .text .feat {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+
+#about .text .feat:first-of-type {
+  transition-delay: 0.1s;
+}
+
+#about .text .feat:nth-of-type(2) {
+  transition-delay: 0.2s;
+}
+
+#about .text .feat:last-of-type {
+  transition-delay: 0.3s;
+}
+
+#about.hidden .text .feat {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+@media (max-width: 992px) {
+  #about .text .feat {
+    flex-direction: column;
+    margin: 0 0 50px;
+  }
+}
+
+#about .text .feat i {
+  display: block;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: var(--main-color);
+  color: white;
+  margin-left: 10px;
+}
+
+@media (max-width: 992px) {
+  #about .text .feat i {
+    margin: 0 0 10px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 992px) {
+  #about .text .feat p {
+    font-size: 22px;
+  }
 }
 
 /* Keyframes */
